@@ -1,0 +1,325 @@
+@import "../general/medias"
+@import "../mixins/center"
+@import "../mixins/fluid"
+@import "../mixins/transition"
+@import "../mixins/delay"
+@import "./variables"   
+a
+    text-decoration: none
+    color: black
+.cursor__link
+    width: 60px!important
+    height: 60px!important
+    display: flex
+    +center-flex
+.vertical-text
+    writing-mode: tb-rl
+    transform: rotate(-180deg)
+
+.label
+    font-family: 'Futura PT Book'
+    color: $gold
+    letter-spacing: 1px
+
+.title
+    &-1
+        font-size: 56px
+        font-family: 'Metropolis 1920'
+        font-weight: 300
+        text-transform: uppercase
+        letter-spacing: 2px
+        color: $gold
+        margin: 0
+    &-2
+        font-size: 40px
+        font-family: 'Metropolis 1920'
+        font-weight: 300
+        text-transform: uppercase
+        letter-spacing: 2px
+        color: $gold
+        margin: 0
+    &-3
+        +title-3
+        font-family: 'Baza'
+        font-weight: 300
+        letter-spacing: 2px
+        color: $gold
+        margin: 0
+        line-height: .9
+    &-4
+        +title-4
+        font-family: 'Baza'
+        text-transform: uppercase
+        font-weight: 300
+        letter-spacing: 2px
+        color: $grey2
+        margin: 0
+    &-5
+        +title-5
+        font-family: 'Baza'
+        text-transform: uppercase
+        font-weight: 300
+        letter-spacing: 2px
+        color: $gold
+        margin: 0
+    &-6
+        +title-6
+        font-family: 'Baza'
+        text-transform: uppercase
+        font-weight: 300
+        letter-spacing: 2px
+        color: $gold
+        margin: 0
+    &-observe
+        span
+            opacity: 0
+            //transition-delay: .05s
+            transition-timing-function: ease
+            transition-duration: .5s
+            display: inline-block
+            transform: translateX(40px)
+            @include delay(transition, 20, 0.05s)
+
+.title-big
+    +title-big 
+    font-family: 'Baza'
+    font-weight: 300
+    text-transform: uppercase
+    letter-spacing: 2px
+    color: $gold
+    margin: 0
+    line-height: .9
+
+.title__part
+    display: flex
+
+.title-observe.animated
+    span
+        opacity: 1
+        transform: translateX(0px)
+.p
+    &-1
+        font-size: 14px
+        color: $grey
+        font-weight: 300
+        font-family: 'Futura PT Book'
+        line-height: 1.6
+        margin: 0
+.link
+    &-sub
+        font-family: 'Futura PT Book'
+        font-weight: 300
+        letter-spacing: 4px
+        font-size: 10px
+        text-transform: uppercase
+        display: flex
+        color: $grey2
+        align-items: center
+        &:before, &:after
+            content: ''
+            display: block
+            width: 22px
+            height: 1px
+            margin: 0px 12px 0
+            background: $grey2
+    &-preload
+        color: $gold
+        font-family: 'Futura PT Book'
+        text-transform: uppercase
+        font-size: 13px
+        display: flex
+        +center-flex
+        //pointer-events: none
+        letter-spacing: 3px
+        //animation: fade 6s cubic-bezier(.165,.84,.44,1) forwards
+        width: 10em
+        transition-duration: .8s
+        transition-timing-function: cubic-bezier(.165,.84,.44,1)
+        animation-delay: 1.5s
+        padding: 10px
+        height: 10em
+        position: relative
+        @media (max-width: $b-mobile)
+            width: 6em
+            font-size: 12px
+            letter-spacing: 2px
+            height: 6em
+        .outer
+            background: $dark
+            width: 100%
+            z-index: -1
+            transform: rotate(45deg)
+            border: 1px solid $brown2
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            transition-duration: .8s
+            transition-timing-function: cubic-bezier(.165,.84,.44,1)
+            .inner
+                width: 80%
+                position: absolute
+                animation: border 1s cubic-bezier(.165,.84,.44,1) forwards
+                opacity: 0
+                animation-delay: 5.7s
+                transition-duration: .8s
+                transition-timing-function: cubic-bezier(.165,.84,.44,1)
+                +center
+                height: 80%
+                border: 1px solid $gold
+        &:hover
+            letter-spacing: 5px
+            @media (max-width: $b-mobile)
+                letter-spacing: 3px
+            .outer
+                transform: rotate(45deg) scale(1.2)
+            .inner
+                width: 100%
+                height: 100%
+    &-border
+        color: $gold
+        text-transform: uppercase
+        font-size: 11px
+        letter-spacing: 2px
+        display: inline-block
+        padding: 12px 29px
+        font-family: 'Futura PT Book'
+        position: relative
+        &:before, &:after
+            width: 100%
+            height: 100%
+            position: absolute
+            +center
+            +transition-1
+            content: ''
+        &:before
+            border: 1px solid $gold
+            transform: translate3d(-3px, 3px, 0)
+        &:after
+            border: 1px solid #8C7453
+            opacity: .4
+            transform: translate3d(3px, -3px, 0)
+        &:hover
+            &:before, &:after
+                transform: translate3d(0, 0, 0)
+                opacity: 1
+.quote
+  border-left: 1px solid $brown2
+  padding-left: 15px
+  p
+    font-family: 'Futura PT Book'
+    margin: 0
+  .name
+    text-transform: uppercase
+    color: $gold
+    letter-spacing: 1.5px
+    font-size: 9px
+    margin-bottom: 5px
+  .prophesy
+    color: rgba(255,255,255,.5)
+    font-size: 11px
+    letter-spacing: 1px
+.text
+    &-observe
+        p
+            margin: 2px 0
+            white-space: nowrap
+            transition-duration: .5s
+            transition-timing-function: ease
+            opacity: 0
+            transform: translateY(10px)
+.animated
+    .text-observe
+        p
+            opacity: 1
+            transform: translateY(0)
+        &:first-child
+            p
+                &:nth-child(1)
+                    transition-delay: .2s
+                &:nth-child(2)
+                    transition-delay: .3s
+                &:nth-child(3)
+                    transition-delay: .4s
+                &:nth-child(4)
+                    transition-delay: .5s
+                &:nth-child(5)
+                    transition-delay: .6s
+                &:nth-child(6)
+                    transition-delay: .7s
+                &:nth-child(7)
+                    transition-delay: .8s
+                &:nth-child(8)
+                    transition-delay: .9s
+                    
+
+.double-line
+    position: relative
+    &:before, &:after
+        content: ''
+        background: $grey2
+        height: 1px
+        width: 100%
+        left: 0
+        box-sizing: border-box
+        bottom: -4px
+        transform-origin: right
+        transform: scaleX(1) translateZ(0)
+        position: absolute
+        transition: transform .6s cubic-bezier(.165,.84,.44,1) .3s,-webkit-transform .6s cubic-bezier(.165,.84,.44,1) .3s
+    &:after
+        transform: scaleX(0) translateZ(0)
+        transition: transform .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .6s cubic-bezier(.165,.84,.44,1)
+        transform-origin: left
+    &:hover:before
+        transform: scaleX(0) translateZ(0)
+        transition: transform .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .6s cubic-bezier(.165,.84,.44,1)
+    &:hover:after
+        transition: transform .6s cubic-bezier(.165,.84,.44,1) .3s,-webkit-transform .6s cubic-bezier(.165,.84,.44,1) .3s
+        transform: scaleX(1) translateZ(0)
+
+.one-line
+    position: relative
+    &:before
+        content: ''
+        background: $grey2
+        height: 1px
+        width: 100%
+        left: 0
+        box-sizing: border-box
+        bottom: -4px
+        transform-origin: left
+        transform: scaleX(0) translateZ(0)
+        position: absolute
+        transition: transform .6s cubic-bezier(.165,.84,.44,1),-webkit-transform .6s cubic-bezier(.165,.84,.44,1)
+    &:hover:before
+        transform: scaleX(1) translateZ(0)
+.uppercase
+    text-transform: uppercase
+
+// @keyframes fade
+//   0%
+//     transform: scale(0.3)
+//     opacity: 0
+//     color: transparent
+//     //pointer-events: none
+//   40%
+//     transform: scale(0.6)
+//     opacity: 1
+//     //pointer-events: none
+//     color: transparent
+//   70%
+//     transform: scale(0.8)
+//     color: transparent
+//     //pointer-events: none
+//   100%
+//     transform: scale(1)
+//     color: $gold
+//     //pointer-events: auto
+@keyframes border
+    0%
+        transform: scale(1.2)
+        opacity: 0
+    100%
+        transform: scale(1)
+        opacity: 1
